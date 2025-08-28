@@ -40,7 +40,15 @@ dotenv.config()
     registeredAt:new Date().toISOString()
 }
  ]
- 
+
+
+ app.get("/health", (req, res) => {
+    res.json({
+        success: true,
+        message: "API is healthy"
+    })
+})
+
  app.get("/registeredusers", (req,res)=>{
     res.json({
         success:true,
