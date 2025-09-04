@@ -6,24 +6,7 @@ dotenv.config()
  app.use(express.json())
     app.use(cors())
  const REGISTERED_USERS =[
-     {ID:1,
-        firstName:"Rahul",
-        middleName:"Bhagawan",
-        lastName:"Bhongade",
-        gender:"male",
-        DoB:"12/04/2004",
-        email:"rahulbhongade@DOC.com",
-    Contactnumber:"9112965273",
-    Address:"Somalwar Khamla Sonegaon road",
-    Whoareyou:"doctor",
-    Licenseproof:"IND_DOC_12@RAHUL",
-    MLN:"IND_DOC30981RAH5463",
-    Specialization:"Cardiology",
-    Experience:"15+",
-    HCname:"Suertech Hospital",
-     isApproved:false,
-    registeredAt:new Date().toISOString()
-},  {ID:2,
+       {ID:1,
         firstName:"Kunal",
         middleName:"Rajendra",
         lastName:"Sonwane",
@@ -37,6 +20,24 @@ dotenv.config()
     MLN:"IND_DOC305681KUN5435",
     Specialization:"Physician",
     Experience:"10+",
+    HCname:"Suertech Hospital",
+     isApproved:false,
+    registeredAt:new Date().toISOString()
+},{
+    ID:2,
+        firstName:"Rahul",
+        middleName:"Bhagawan",
+        lastName:"Bhongade",
+        gender:"male",
+        DoB:"12/04/2004",
+        email:"rahulbhongade@DOC.com",
+    Contactnumber:"9112965273",
+    Address:"Somalwar Khamla Sonegaon road",
+    Whoareyou:"doctor",
+    Licenseproof:"IND_DOC_12@RAHUL",
+    MLN:"IND_DOC30981RAH5463",
+    Specialization:"Cardiology",
+    Experience:"15+",
     HCname:"Suertech Hospital",
      isApproved:false,
     registeredAt:new Date().toISOString()
@@ -173,22 +174,22 @@ res.json({
             message:"User not Found"
         })
     }
-    const{email,Contactnumber,Address,Specialization,Experience}=req.body;
+    const{firstName,middleName,lastName,gender,DoB,email,Contactnumber,Address,Specialization,Experience}=req.body;
     const editUser={
         ID:REGISTERED_USERS[index].ID,
-        firstName:REGISTERED_USERS[index].firstName,
-        middleName:REGISTERED_USERS[index].middleName,
-        lastName:REGISTERED_USERS[index].lastName,
-        gender:REGISTERED_USERS[index].gender,
-        DoB:REGISTERED_USERS[index].DoB,
+        firstName,
+        middleName,
+        lastName,
+        gender,
+        DoB,
         email,
         Contactnumber,
         Address,
+        Specialization,
+        Experience,
         Whoareyou: REGISTERED_USERS[index].Whoareyou,
         Licenseproof:REGISTERED_USERS[index].Licenseproof,
         MLN:REGISTERED_USERS[index].MLN,
-        Specialization,
-        Experience,
         HCname:REGISTERED_USERS[index].HCname,
         isApproved: REGISTERED_USERS[index].isApproved,
         registeredAt:REGISTERED_USERS[index].registeredAt,
